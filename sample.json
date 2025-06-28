@@ -1,0 +1,9 @@
+{
+  "body": {
+    "type": "Message",
+    "messageId": "msg-123",
+    "conversationId": "conv-123",
+    "fromAddress": "user-abc",
+    "text": "hello"
+  }
+}

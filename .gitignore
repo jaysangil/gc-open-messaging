@@ -1,0 +1,37 @@
+# Python cache and virtualenvs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+ENV/
+venv/
+.venv/
+
+# dotenv environment variables (always ignore secrets!)
+.env
+
+# macOS, Windows junk
+.DS_Store
+Thumbs.db
+
+# ngrok log and state files (if present)
+ngrok.log
+ngrok-debug.log
+
+# VS Code and PyCharm settings (if using)
+.vscode/
+.idea/
+
+# SSL certs (if you ever generate self-signed for local)
+cert.pem
+key.pem
+
+# Logs
+*.log
+
+# Jupyter/IPython (if used)
+.ipynb_checkpoints/
+
+# System files
+*.swp
