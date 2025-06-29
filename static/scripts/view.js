@@ -1,27 +1,49 @@
 // static/scripts/view.js
-/**
- * Helper to scroll to bottom of the chat pane.
- */
 function updateScroll() {
   const pane = document.getElementById('agent-assist');
   pane.scrollTop = pane.scrollHeight;
 }
 
 export default {
-  /**
-   * Append a chat bubble.
-   * @param {String} sender  — display name
-   * @param {String} message — the text to show
-   * @param {String} purpose — CSS class (e.g. 'agent' or 'customer')
-   */
   addChatMessage(sender, message, purpose) {
     const container = document.createElement('div');
     container.className = `chat-message ${purpose}`;
 
-    const p = document.createElement('p');
-    p.textContent = `${sender}: ${message}`;
+    // Avatar
+    const avatarUrl = purpose === 'agent'
+      ? '/static/images/agent.jpg'
+      : '/static/images/customer.jpg';
+    const avatar = document.createElement('div');
+    avatar.className = 'avatar';
+    avatar.style.backgroundImage = `url('${avatarUrl}')`;
 
-    container.appendChild(p);
+    // Message body wrapper
+    const body = document.createElement('div');
+    body.className = 'message-body';
+
+    // Bubble
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = message;
+
+    // Timestamp
+    const ts = document.createElement('span');
+    ts.className = 'timestamp';
+    ts.textContent = new Date().toLocaleTimeString([], {
+      hour:   '2-digit',
+      minute: '2-digit'
+    });
+
+    // Assemble
+    body.appendChild(bubble);
+    body.appendChild(ts);
+
+    if (purpose === 'customer') {
+      container.append(avatar, body);
+    } else {
+      container.append(body, avatar);
+    }
+
     document.getElementById('agent-assist').appendChild(container);
     updateScroll();
   }

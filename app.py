@@ -28,7 +28,6 @@ transcript = []
 processed_message_ids = set()
 
 
-
 # ─── Helpers ────────────────────────────────────────────────────────────────────
 def api_base_url() -> str:
     raw = API_HOST or ""
