@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Messaging Sample</title>
+
+  <!-- Bulma for base styles -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+  />
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="/static/styles/style.css" />
+</head>
+<body>
+
+  <div class="chat-container">
+    <!-- Message pane -->
+    <div id="agent-assist" class="chat-window"></div>
+
+    <!-- Input row, wrapped in the form again -->
+    <div class="chat-input-container">
+      <form id="chat-form" class="field has-addons">
+        <div class="control is-expanded">
+          <textarea
+            id="message-textarea"
+            class="textarea"
+            placeholder="Type your message…"
+            rows="2"
+          ></textarea>
+        </div>
+        <div class="control">
+          <button id="btn-send-message" type="submit" class="button is-primary">
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Your front-end logic -->
+  <script type="module" src="/static/scripts/main.js"></script>
+</body>
+</html>
